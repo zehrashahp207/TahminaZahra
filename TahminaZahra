@@ -1,34 +1,34 @@
-class Product:
-    def __init__(self, name, price, quantity):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+class Mehsul:
+    def __init__(self, ad, qiymet, say):
+        self.ad = ad
+        self.qiymet = qiymet
+        self.say = say
 
     def __str__(self):
-        return f"{self.name} - {self.price} AZN - {self.quantity} ədəd"
+        return f"{self.ad} - {self.qiymet} AZN - {self.say} ədəd"
 
-class Store:
+class Magaza:
     def __init__(self):
-        self.products = []
+        self.mehsullar = []
 
-    def add_product(self, name, price, quantity):
-        self.products.append(Product(name, price, quantity))
+    def mehsul_elaveet(self, ad, qiymet, say):
+        self.mehsullar.append(Mehsul(ad, qiymet, say))
 
-    def list_products(self):
-        if len(self.products) == 0:
+    def mehsullari_goster(self):
+        if len(self.mehsullar) == 0:
             print("Mağazada məhsul yoxdur.")
         else:
-            for i, p in enumerate(self.products, 1):
+            for i, p in enumerate(self.mehsullar, 1):
                 print(f"[{i}] {p}")
 
-    def remove_product(self, index):
-        if 0 <= index < len(self.products):
-            removed = self.products.pop(index)
-            print(f"{removed.name} silindi.")
+    def mehsul_sil(self, index):
+        if 0 <= index < len(self.mehsullar):
+            removed = self.mehsullar.pop(index)
+            print(f"{removed.ad} silindi.")
         else:
             print("Yanlış nömrə!")
 
-store = Store()
+magaza = Magaza()
 
 while True:
     print("""
@@ -38,31 +38,34 @@ while True:
     3. Məhsul sil
     0. Çıxış
     """)
+    secim = input("Seçiminizi daxil edin: ")
 
-    choice = input("Seçiminizi daxil edin: ")
-
-    if choice == "0":
+    if secim == "0":
         print("Çıxılır...")
         break
-    elif choice == "1":
-        name = input("Məhsul adı: ")
+
+    elif secim == "1":
+        ad = input("Məhsul adı: ")
         try:
-            price = float(input("Qiymət (AZN): "))
-            quantity = int(input("Miqdar: "))
+            qiymet = float(input("Qiymət (AZN): "))
+            say = int(input("Miqdar: "))
         except:
             print("Qiymət və ya miqdar düzgün deyil!")
             continue
-        store.add_product(name, price, quantity)
+        magaza.mehsul_elaveet(ad, qiymet, say)
         print("Məhsul əlavə edildi.")
-    elif choice == "2":
-        store.list_products()
-    elif choice == "3":
+
+    elif secim == "2":
+        magaza.mehsullari_goster()
+
+    elif secim == "3":
         try:
-            index = int(input("Silinəcək məhsulun nömrəsi: ")) - 1
+            nomre = int(input("Silinəcək məhsulun nömrəsi: ")) - 1
         except:
             print("Düzgün nömrə daxil edin!")
             continue
-        store.remove_product(index)
+        magaza.mehsul_sil(nomre)
+
     else:
         print("Yanlış seçim!")
 
