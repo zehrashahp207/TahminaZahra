@@ -1,0 +1,68 @@
+class Product:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity = quantity
+
+    def __str__(self):
+        return f"{self.name} - {self.price} AZN - {self.quantity} ədəd"
+
+class Store:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, name, price, quantity):
+        self.products.append(Product(name, price, quantity))
+
+    def list_products(self):
+        if len(self.products) == 0:
+            print("Mağazada məhsul yoxdur.")
+        else:
+            for i, p in enumerate(self.products, 1):
+                print(f"[{i}] {p}")
+
+    def remove_product(self, index):
+        if 0 <= index < len(self.products):
+            removed = self.products.pop(index)
+            print(f"{removed.name} silindi.")
+        else:
+            print("Yanlış nömrə!")
+
+store = Store()
+
+while True:
+    print("""
+    Mağaza:
+    1. Məhsul əlavə et
+    2. Məhsulları göstər
+    3. Məhsul sil
+    0. Çıxış
+    """)
+
+    choice = input("Seçiminizi daxil edin: ")
+
+    if choice == "0":
+        print("Çıxılır...")
+        break
+    elif choice == "1":
+        name = input("Məhsul adı: ")
+        try:
+            price = float(input("Qiymət (AZN): "))
+            quantity = int(input("Miqdar: "))
+        except:
+            print("Qiymət və ya miqdar düzgün deyil!")
+            continue
+        store.add_product(name, price, quantity)
+        print("Məhsul əlavə edildi.")
+    elif choice == "2":
+        store.list_products()
+    elif choice == "3":
+        try:
+            index = int(input("Silinəcək məhsulun nömrəsi: ")) - 1
+        except:
+            print("Düzgün nömrə daxil edin!")
+            continue
+        store.remove_product(index)
+    else:
+        print("Yanlış seçim!")
+
