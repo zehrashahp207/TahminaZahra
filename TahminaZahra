@@ -14,9 +14,9 @@ class Anbar:
         if self.mehsullar:
             print("Anbardak覺 mehsullar:")
             for i in self.mehsullar:
-                print("-", item)
+                print("-", i)
         else:
-            print("Anbar bo��dur.")
+            print("Anbar bosdur.")
 anbar = Anbar()
 while True:
     print("\n--- ANBAR IDAREETME MENYUSU ---")
@@ -38,4 +38,4 @@ while True:
             print("Proqramdan 癟覺x覺l覺r...")
             break
         case _:
-            print("Yanl礬 secim")
+            print("Yanl礬 secim"
