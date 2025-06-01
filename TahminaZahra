@@ -38,4 +38,4 @@ while True:
             print("Proqramdan çıxılır...")
             break
         case _:
-            print("Yanlış seç")
+            print("Yanlış sim�")
