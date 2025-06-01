@@ -23,7 +23,7 @@ while True:
     print("1. Mehsul elave et")
     print("2. Mehsul sil")
     print("3. Mehsullara bax")
-    print("4. Çıxış")
+    print("4. Cixis")
     secim = input("Seçim et: ")
     match secim:
         case "1":
@@ -38,4 +38,4 @@ while True:
             print("Proqramdan çıxılır...")
             break
         case _:
-            print("Yanlış seçim! 1-4 arası bir reqem se
+            print("Yanlış seç")
