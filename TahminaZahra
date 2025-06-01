@@ -13,7 +13,7 @@ class Anbar:
     def mehsullari_goster(self):
         if self.mehsullar:
             print("Anbardakı mehsullar:")
-            for item in self.mehsullar:
+            for i in self.mehsullar:
                 print("-", item)
         else:
             print("Anbar boşdur.")
@@ -38,4 +38,4 @@ while True:
             print("Proqramdan çıxılır...")
             break
         case _:
-            print("Yanlış sim�")
+            print("Yanl�s secim")
